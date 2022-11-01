@@ -75,4 +75,5 @@
 .input::placeholder {
   font: inherit;
   font-size: 18px;
+  color: rgb(69, 22, 80);
 }

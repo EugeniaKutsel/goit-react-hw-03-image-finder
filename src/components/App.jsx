@@ -16,16 +16,16 @@ class App extends React.Component {
     page: 1,
   }
 
-  async componentDidUpdate(prevProps, prevState){
-    if (prevState.page !== this.state.page || prevState.searchWord !== this.state.searchWord ) {
+  async componentDidUpdate(prevProps, prevState) {
+    const { searchWord, page } = this.state;
+    if (prevState.page !== page || prevState.searchWord !== searchWord) {
       try {
-        this.setState({loading: true})
-        const images = await API.getImages(this.state.searchWord, this.state.page);
-        this.setState({images: [...prevState.images, ...images], loading: false});
+        this.setState({ loading: true })
+        const images = await API.getImages(searchWord, page);
+        this.setState({ images: [...prevState.images, ...images], loading: false });
       } catch (error) {
         console.log(error);
       }
-      
     }
   }
 
@@ -47,7 +47,8 @@ class App extends React.Component {
       <div className={css.app}>
         <ToastContainer autoClose={1000} hideProgressBar={true}/>
         <Searchbar onSubmit={this.handleFormSubmit} />
-        {loading ? <Loader /> : <ImageGallery images={images} />}
+        <ImageGallery images={images} />
+        {loading && <Loader />}
         {images.length > 0 && <Button onClick={this.loadMore} />}
       </div>
     );
