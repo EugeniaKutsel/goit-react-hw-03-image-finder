@@ -1,4 +1,5 @@
 import ImageGalleryItem from "components/ImageGalleryItem/ImageGalleryItem";
+import css from "../ImageGallery/ImageGallery.module.css";
 
 const ImageGallery = ({ images }) => {
   const elements = images.map(image => 
@@ -9,7 +10,7 @@ const ImageGallery = ({ images }) => {
     />
     )
   return (
-    <ul className="gallery">
+    <ul className={css.gallery}>
      {elements}
   </ul>
   )

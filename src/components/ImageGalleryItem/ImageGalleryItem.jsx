@@ -1,7 +1,9 @@
-const ImageGalleryItem = ({ id, webFormatUrl, tags}) => {
+import css from "../ImageGalleryItem/ImageGalleryItem.module.css";
+
+const ImageGalleryItem = ({ id, webFormatUrl, tags }) => {
   return (
-    <li className="gallery-item" key={id}>
-      <img src={webFormatUrl} alt={tags} />
+    <li className={css.galleryItem} key={id}>
+      <img className={css.galleryImage} src={webFormatUrl} alt={tags} />
     </li>
   );
 }

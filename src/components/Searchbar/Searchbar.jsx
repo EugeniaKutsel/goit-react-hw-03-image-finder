@@ -25,8 +25,7 @@ class Searchbar extends React.Component {
     return (
       <header className={css.searchbar}>
         <form className={css.form} onSubmit={this.handleSubmit}>
-          <button type="submit">
-            <span>Search</span>
+          <button type="submit" className={css.searchFormButton}>
           </button>
 
           <input

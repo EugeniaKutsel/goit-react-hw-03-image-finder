@@ -1,4 +1,5 @@
 import React from "react";
+import css from "../components/App.module.css";
 import { ToastContainer } from "react-toastify";
 import Searchbar from "./Searchbar/Searchbar";
 import ImageGallery from "./ImageGallery/ImageGallery";
@@ -15,7 +16,7 @@ class App extends React.Component {
     if (prevState.searchWord !== this.state.searchWord) {
       try {
         const images = await API.getImages(this.state.searchWord);
-      this.setState({ images });
+        this.setState({ images });
       } catch (error) {
         
       }
@@ -30,7 +31,7 @@ class App extends React.Component {
   render() {
     const { images } = this.state;
     return (
-      <div>
+      <div className={css.app}>
         <ToastContainer autoClose={2000} hideProgressBar={true}/>
         <Searchbar onSubmit={this.handleFormSubmit} />
         <ImageGallery images={images} />
