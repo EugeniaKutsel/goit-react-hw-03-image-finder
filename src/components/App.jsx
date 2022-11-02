@@ -22,9 +22,11 @@ class App extends React.Component {
       try {
         this.setState({ loading: true })
         const images = await API.getImages(searchWord, page);
-        this.setState({ images: [...prevState.images, ...images], loading: false });
+        this.setState({ images: [...prevState.images, ...images]});
       } catch (error) {
         console.log(error);
+      } finally {
+        this.setState({loading:false})
       }
     }
   }
@@ -40,16 +42,17 @@ class App extends React.Component {
   loadMore = () => {
     this.setState(prevState => ({ page: prevState.page + 1, loading: true }))
   }
-
+  
   render() {
     const { images, loading } = this.state;
     return (
       <div className={css.app}>
         <ToastContainer autoClose={1000} hideProgressBar={true}/>
         <Searchbar onSubmit={this.handleFormSubmit} />
-        <ImageGallery images={images} />
+        <ImageGallery images={images}/>
         {loading && <Loader />}
         {images.length > 0 && <Button onClick={this.loadMore} />}
+        
       </div>
     );
  } 

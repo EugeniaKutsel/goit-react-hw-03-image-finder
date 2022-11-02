@@ -18,7 +18,7 @@ class Searchbar extends React.Component {
        return toast.error("Enter search name to find some images!");
      }
      this.props.onSubmit(this.state.searchWord);
-    //  this.setState({ searchWord: ''}); //очистка поля ввода после нажатия на поиск
+     this.setState({ searchWord: ''}); //очистка поля ввода после нажатия на поиск
   }
   
   render() {
