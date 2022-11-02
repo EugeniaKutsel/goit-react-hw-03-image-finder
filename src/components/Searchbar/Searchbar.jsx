@@ -2,6 +2,7 @@ import React from "react";
 import { toast } from "react-toastify";
  import 'react-toastify/dist/ReactToastify.css';
 import css from "../Searchbar/Searchbar.module.css";
+import { BsSearch } from "react-icons/bs";
 
 class Searchbar extends React.Component {
   state = {
@@ -26,6 +27,7 @@ class Searchbar extends React.Component {
       <header className={css.searchbar}>
         <form className={css.form} onSubmit={this.handleSubmit}>
           <button type="submit" className={css.searchFormButton}>
+            <BsSearch style={{ width: 20, height: 20 }}/>
           </button>
 
           <input

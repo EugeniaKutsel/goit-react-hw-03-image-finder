@@ -54,7 +54,7 @@ class App extends React.Component {
         <ToastContainer autoClose={1000} hideProgressBar={true} />
         <Searchbar onSubmit={this.handleFormSubmit} />
         <ImageGallery images={images} />
-        {error && <h2>Ooops, something wrong :( Please, try again </h2>}
+        {error && <h2 className={css.error}>Ooops, something wrong :( Please, try again </h2>}
         {loading && <Loader />}
         {images.length > 0 && <Button onClick={this.loadMore} />}
       </div>
