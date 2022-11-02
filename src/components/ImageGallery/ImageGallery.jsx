@@ -7,7 +7,7 @@ const ImageGallery = ({ images }) => {
       key={image.id}
       webformatURL={image.webformatURL}
       tags={image.tags}
-      // largeImageURL={image.largeImageURL}
+      largeImageURL={image.largeImageURL}
     />
     )
   return (
