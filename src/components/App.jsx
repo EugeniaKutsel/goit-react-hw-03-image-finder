@@ -51,7 +51,7 @@ class App extends React.Component {
     const { images, loading, error } = this.state;
     return (
       <div className={css.app}>
-        <ToastContainer autoClose={1000} hideProgressBar={true} />
+        <ToastContainer autoClose={2000} hideProgressBar={true} />
         <Searchbar onSubmit={this.handleFormSubmit} />
         <ImageGallery images={images} />
         {error && <h2 className={css.error}>Ooops, something wrong :( Please, try again </h2>}
